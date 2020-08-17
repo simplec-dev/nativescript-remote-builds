@@ -16,14 +16,14 @@ class FastlaneService {
         } else {
             // TODO: refer README
             const iosBuildError = "required when building iOS apps."
-            requiredArgs.push({
-                name: "IOS_SIGNING_REPO_URL",
-                errorIfMissing: `'IOS_SIGNING_REPO_URL' ${iosBuildError}`
-            });
-            requiredArgs.push({
-                name: "MATCH_PASSWORD",
-                errorIfMissing: `'MATCH_PASSWORD' ${iosBuildError}`
-            });
+            //requiredArgs.push({
+                //name: "IOS_SIGNING_REPO_URL",
+                //errorIfMissing: `'IOS_SIGNING_REPO_URL' ${iosBuildError}`
+            //});
+            //requiredArgs.push({
+                //name: "MATCH_PASSWORD",
+                //errorIfMissing: `'MATCH_PASSWORD' ${iosBuildError}`
+            //});
             if (shouldPublish) {
                 // TODO: refer README
                 const iosPublishError = "required in order to publish iOS apps.";
