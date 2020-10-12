@@ -41,8 +41,8 @@ jobs:
           key: gems-mac-{{ checksum "Gemfile" }}
           paths:
             - vendor/bundle      
-      - run: gem install --user-install cocoapods
       - run: pod repo update
+      - run: gem install --user-install cocoapods
       - run:
           name: Fastlane
           command: bundle exec fastlane ios build
