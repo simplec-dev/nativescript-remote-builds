@@ -33,14 +33,14 @@ jobs:
       - run: npm install
 
       # INSTALL GEMS
-      - restore_cache:
-          key: gems-mac-{{ checksum "Gemfile" }}
+      #- restore_cache:
+          #key: gems-mac-{{ checksum "Gemfile" }}
       - run: bundle config set path 'vendor/bundle'
       - run: bundle install
-      - save_cache:
-          key: gems-mac-{{ checksum "Gemfile" }}
-          paths:
-            - vendor/bundle      
+      #- save_cache:
+          #key: gems-mac-{{ checksum "Gemfile" }}
+          #paths:
+            #- vendor/bundle      
       - run: pod repo update
       
       - run:
