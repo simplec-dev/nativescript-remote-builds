@@ -42,7 +42,7 @@ jobs:
           paths:
             - vendor/bundle
       - run: pod repo update
-      - run: gem install cocoapoads
+      - run: sudo gem install cocoapods
       - run:
           name: Fastlane
           command: bundle exec fastlane ios build
