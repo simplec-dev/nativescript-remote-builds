@@ -42,10 +42,10 @@ jobs:
           paths:
             - vendor/bundle      
       - run: pod repo update
-      - run: gem install --user-install cocoapods
+      
       - run:
           name: Fastlane
-          command: bundle exec fastlane ios build
+          command: gem install --user-install cocoapods; bundle exec fastlane ios build
       - store_artifacts:
           path: ~/fl_output/{{PROJECT_NAME}}.ipa
           destination: "~/output/{{OUTPUT_APP_FILENAME}}"
