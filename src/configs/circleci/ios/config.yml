@@ -33,16 +33,15 @@ jobs:
       - run: npm install
 
       # INSTALL GEMS
-      #- restore_cache:
-          #key: gems-mac-{{ checksum "Gemfile" }}
-      - run: sudo gem install cocoapods
+      - restore_cache:
+          key: gems-mac-{{ checksum "Gemfile" }}
       - run: bundle config set path 'vendor/bundle'
       - run: bundle install
-      #- save_cache:
-          #key: gems-mac-{{ checksum "Gemfile" }}
-          #paths:
-            #- vendor/bundle
-      - run: bundle update cocoapods
+      - save_cache:
+          key: gems-mac-{{ checksum "Gemfile" }}
+          paths:
+            - vendor/bundle      
+      - run: gem install --user-install cocoapods
       - run: pod repo update
       - run:
           name: Fastlane
