@@ -1,8 +1,8 @@
-version: 2.1
+version: 2
 jobs:
   build:
     macos:
-      xcode: 12.0.1
+      xcode: 11.3.0
     working_directory: "~/{{PROJECT_NAME}}"
     environment:
       FL_OUTPUT_DIR: ~/fl_output
@@ -24,8 +24,8 @@ jobs:
           paths:
             - ~/npm_prefix
           key: global-modules-mac-{{CLI_VERSION}}
-      - run: tns usage-reporting disable
-      - run: tns error-reporting disable
+      #- run: tns usage-reporting disable
+      #- run: tns error-reporting disable
 
       - checkout
 
@@ -33,14 +33,14 @@ jobs:
       - run: npm install
 
       # INSTALL GEMS
-      #- restore_cache:
-          #key: gems-mac-{{ checksum "Gemfile" }}
+      - restore_cache:
+          key: gems-mac-a8643da3af35c7f46015231493e67f9ee54f1854
       - run: bundle config set path 'vendor/bundle'
       - run: bundle install
-      #- save_cache:
-          #key: gems-mac-{{ checksum "Gemfile" }}
-          #paths:
-            #- vendor/bundle      
+      - save_cache:
+          key: gems-mac-a8643da3af35c7f46015231493e67f9ee54f1854
+          paths:
+            - vendor/bundle      
       - run: pod repo update
       
       - run:
